@@ -1,12 +1,27 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import { Inter } from 'next/font/google'
+import { useEffect, useState } from 'react'
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import { redirect } from 'next/navigation';
+import { NextResponse, NextRequest } from 'next/server'
+import Router from 'next/router'
+import Navbar from '@/components/Navbar';
 
 
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
+  const router = useRouter();
+  const [currentUser,setCurrentUser] = useState(false)
+  // useEffect(()=>{
+  //   if(!currentUser){
+  //     Router.push("./login")
+  //  }
+  // },[])
+
   return (
     <>
       <Head>
@@ -15,8 +30,8 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main >
-       
+      <main className=' bg-gray-100 h-screen max-w-7xl mx-auto' >
+       <Navbar/>
       </main>
     </>
   )
