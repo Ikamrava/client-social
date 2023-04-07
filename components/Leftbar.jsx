@@ -14,7 +14,7 @@ import message from "../images/message.png"
 
 function Leftbar() {
   return (
-    <div className='hidden flex-[10%] md:flex flex-col border-2 w-full bg-white sticky top-[70px] gap-2 pb-3  '>
+    <div className='hidden flex-[10%] md:flex flex-col border-2  h-[calc(100vh-70px)] bg-white sticky top-[70px]  gap-5 pb-3 overflow-scroll scrollbar-hide'>
       
       <div className=' flex items-center gap-3 pl-4 pt-5 cursor-pointer'>
         <Avatar name="Iman Kam" size='30' round={true}></Avatar>
