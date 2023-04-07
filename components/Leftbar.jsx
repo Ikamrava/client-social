@@ -14,8 +14,9 @@ import message from "../images/message.png"
 
 function Leftbar() {
   return (
-    <div className='flex-[10%] border-2 w-full bg-white'>
-      <div className=' flex items-center gap-3 pl-4 pt-5'>
+    <div className='hidden flex-[10%] md:flex flex-col border-2 w-full bg-white sticky top-[70px] gap-2 pb-3  '>
+      
+      <div className=' flex items-center gap-3 pl-4 pt-5 cursor-pointer'>
         <Avatar name="Iman Kam" size='30' round={true}></Avatar>
         <p>Iman Kamrava</p>
       </div>
@@ -35,11 +36,6 @@ function Leftbar() {
       <MenuItems imageUrl={gallery} title="Fundraiser"/>
       <MenuItems imageUrl={video} title="Tutorials"/>
       <MenuItems imageUrl={message} title="Courses"/>
-
-
-
-     
-     
       
     </div>
   )
