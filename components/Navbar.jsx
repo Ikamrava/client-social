@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import logo from "../images/logo.png"
 import Image from 'next/image'
 import { AiOutlineHome } from 'react-icons/ai';
@@ -28,6 +28,14 @@ import message from "../images/message.png"
 
 
 function Navbar() {
+    const [show,setShow] = useState(false)
+    function menuHandler(){
+        if(show){
+            setShow(false)
+           }else{
+            setShow(true)
+           }
+    }
   return (
     <div className='  py-4 shadow-lg px-5 justify-between flex bg-white sticky top-0 '>
         <div className=' flex items-center gap-5'>
@@ -56,35 +64,39 @@ function Navbar() {
         
         </div>
 
-        <div className="">
-            <Image src={ham} width={25} height={25}  />
-
-            <div className='flex-[10%] flex flex-col border-2 w-[50%] bg-white  gap-2 pb-3 absolute top-16 right-0 md:hidden  '>
-      
-            <div className=' flex items-center gap-3 pl-4 pt-5 cursor-pointer'>
-                <Avatar name="Iman Kam" size='30' round={true}></Avatar>
-                <p>Iman Kamrava</p>
-            </div>
-
-            <MenuItems imageUrl={friends} title="Friends"/>
-            <MenuItems imageUrl={image} title="Group"/>
-            <MenuItems imageUrl={market} title="Market Place"/>
-            <MenuItems imageUrl={watch} title="Watch"/>
-            <MenuItems imageUrl={memory} title="Memories"/>
-            <p className='pl-4 mt-5 pt-5 border-t-2'>Your Shortcuts</p>
-            <MenuItems imageUrl={event} title="Events"/>
-            <MenuItems imageUrl={game} title="Game"/>
-            <MenuItems imageUrl={gallery} title="Gallery"/>
-            <MenuItems imageUrl={video} title="Videos"/>
-            <MenuItems imageUrl={message} title="Messages"/>
-            <p className='pl-4 mt-5 pt-5 border-t-2'>Others</p>
-            <MenuItems imageUrl={gallery} title="Fundraiser"/>
-            <MenuItems imageUrl={video} title="Tutorials"/>
-            <MenuItems imageUrl={message} title="Courses"/>
+       
+        <div className=" overflow-scroll">
+        <Image src={ham} width={35} height={10} onClick={menuHandler} />
+        { show &&
             
-            </div>
+            <div className='flex-[10%] flex flex-col border-2 w-[50%] bg-white  gap-2 pb-3 absolute  right-0 md:hidden  overflow-scroll h-[calc(100vh-70px)] top-[66px]  '>
+      
+                <div className=' flex items-center gap-3 pl-4 pt-5 cursor-pointer'>
+                    <Avatar name="Iman Kam" size='30' round={true}></Avatar>
+                    <p>Iman Kamrava</p>
+                </div>
+
+                <MenuItems imageUrl={friends} title="Friends"/>
+                <MenuItems imageUrl={image} title="Group"/>
+                <MenuItems imageUrl={market} title="Market Place"/>
+                <MenuItems imageUrl={watch} title="Watch"/>
+                <MenuItems imageUrl={memory} title="Memories"/>
+                <p className='pl-4 mt-5 pt-5 border-t-2'>Your Shortcuts</p>
+                <MenuItems imageUrl={event} title="Events"/>
+                <MenuItems imageUrl={game} title="Game"/>
+                <MenuItems imageUrl={gallery} title="Gallery"/>
+                <MenuItems imageUrl={video} title="Videos"/>
+                <MenuItems imageUrl={message} title="Messages"/>
+                <p className='pl-4 mt-5 pt-5 border-t-2'>Others</p>
+                <MenuItems imageUrl={gallery} title="Fundraiser"/>
+                <MenuItems imageUrl={video} title="Tutorials"/>
+                <MenuItems imageUrl={message} title="Courses"/>
+                
+                </div>
+                }
             
         </div>
+
     </div>
   )
 }
