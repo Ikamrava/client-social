@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Avatar from 'react-avatar'
 import MenuItems from './MenuItems'
 import friends from "../images/friends.png"
@@ -11,14 +11,16 @@ import game from "../images/game.png"
 import gallery from "../images/gallery.png"
 import video from "../images/video.png"
 import message from "../images/message.png"
+import { AuthContext } from '@/context/authContext'
 
 function Leftbar() {
+  const {currentUser} = useContext(AuthContext)
   return (
-    <div className='hidden flex-[10%] md:flex flex-col border-2  h-[calc(100vh-70px)] bg-white sticky top-[70px]  gap-5 pb-3 overflow-scroll scrollbar-hide'>
+    <div className='hidden flex-[10%] md:flex flex-col border-2  h-[calc(100vh-70px)] bg-white dark:bg-slate-800 sticky top-[70px]  gap-5 pb-3 overflow-scroll scrollbar-hide'>
       
       <div className=' flex items-center gap-3 pl-4 pt-5 cursor-pointer'>
-        <Avatar name="Iman Kam" size='30' round={true}></Avatar>
-        <p>Iman Kamrava</p>
+        <Avatar name="Iman Kam" size='30' round={true} src={currentUser?.profilepic}></Avatar>
+        <p>{currentUser?.name}</p>
       </div>
 
       <MenuItems imageUrl={friends} title="Friends"/>

@@ -1,7 +1,18 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Link from 'next/link'
+import { func } from 'prop-types'
+import { AuthContext } from '@/context/authContext'
+import { useRouter } from 'next/router'
 
 function login() {
+  const {login} = useContext(AuthContext)
+  const router = useRouter();
+  function loginHandler(){
+    login()
+    router.push("/")
+  }
+
+
   return (
     <div className=' bg-slate-600 h-screen pt-28'>
       <div className='max-w-4xl flex flex-col items-center  md:flex-row mx-auto  rounded-xl   '>
@@ -19,7 +30,7 @@ function login() {
           <input className=' border-b-2 mb-5 ' type="text" />
           <label className=' text-gray-600' htmlFor="Password">Password</label>
           <input className=' border-b-2 mb-10 ' type="password" />
-          <button className=' bg-violet-500 py-2 text-white font-bold mb-6 mt-1'>Login</button>
+          <button className=' bg-violet-500 py-2 text-white font-bold mb-6 mt-1' onClick={loginHandler}>Login</button>
           <p className=' md:hidden text-center mb-2 pt-10'>Don't you have an account?</p>
           <Link className=" md:hidden text-center bg-slate-700 text-white py-2" href="/register">Register</Link>
         </div>
