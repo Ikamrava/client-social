@@ -20,7 +20,7 @@ function Leftbar() {
     setuser(currentUser)
   },[currentUser])
   return (
-    <div className='hidden flex-[10%] md:flex flex-col border-2  h-[calc(100vh-70px)] bg-white dark:bg-slate-800 sticky top-[70px]  gap-5 pb-3 overflow-scroll scrollbar-hide'>
+    <div className='hidden flex-[10%] md:flex flex-col   h-[calc(100vh-70px)] bg-white dark:bg-slate-800 sticky top-[70px]  gap-5 pb-3 overflow-scroll scrollbar-hide'>
       
       <div className=' flex items-center gap-3 pl-4 pt-5 cursor-pointer'>
         <Avatar name="Iman Kam" size='30' round={true} src={user?.profilepic}></Avatar> 

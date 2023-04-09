@@ -40,7 +40,7 @@ function Posts() {
     <div className=' flex flex-col  items-center gap-5'>
       
       {data && data.map(item=>(
-        <Post post={item}/>
+        <Post post={item} key={item.id}/>
       ))}
       
       

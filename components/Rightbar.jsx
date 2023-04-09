@@ -4,7 +4,7 @@ import Avatar from 'react-avatar'
 function Rightbar() {
 
   return (
-    <div className=' hidden md:flex flex-[20%] flex-col border-2 w-full sticky top-[88px] mx-2 gap-5 my-5  '>
+    <div className=' hidden md:flex flex-[20%] flex-col  w-full sticky top-[88px] mx-2 gap-5 my-5  '>
 
       <div>
         <p className=' bg-white dark:bg-slate-800 px-5 py-5'>Suggestions</p>

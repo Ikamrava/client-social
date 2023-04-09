@@ -61,7 +61,7 @@ useEffect(()=>{
     
       <div className=' flex overflow-x-auto gap-3  ' >
 
-         <div id={user?.id} className=' min-w-[20px] max-w-[200px] h-[240px] flex-none '>
+         <div id={user?.id} className=' min-w-[20px] md:max-w-[200px] md:h-[240px] flex-none max-w-[100px] max-h-[150px] '>
         
               <img className=' w-full object-cover h-full rounded-lg ' src={user?.profilepic} alt="" />
                 <div className='left-[300px] absolute top-[250px] bg-white rounded-full cursor-pointer' >
@@ -72,7 +72,7 @@ useEffect(()=>{
             
 
         {data && data.map(item=>(
-            <div id={item.id} className=' min-w-[20px] max-w-[200px] h-[240px] flex-none  '>
+            <div id={item.id} className=' min-w-[20px] md:max-w-[200px] md:h-[240px] flex-none max-w-[100px] max-h-[150px]  '>
               <img className=' w-full object-cover h-full rounded-lg ' src={item?.img} alt="" />
               <div className='left-2 absolute bottom-5 ' >
               </div>
