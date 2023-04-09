@@ -45,6 +45,11 @@ function Navbar() {
         theme == "dark"? setTheme('light'): setTheme("dark")
     }
 
+    const[user,setuser] = useState(null)
+  useEffect(()=>{
+    setuser(currentUser)
+  },[currentUser])
+
 
 
   return (
@@ -69,8 +74,8 @@ function Navbar() {
             <AiOutlineMail size={25}/>
             <AiOutlineBell size={25}/>
             <div className=' flex gap-2 items-center'>
-                <Avatar name="Iman Kam" size='30' round={true} src={currentUser?.profilepic}/>
-                <p>{currentUser?.name}</p>
+                <Avatar name="Iman Kam" size='30' round={true} src={user?.profilepic}/>
+                <p>{user?.name}</p> 
             </div>
         
         </div>
@@ -83,8 +88,8 @@ function Navbar() {
             <div className='flex-[10%] flex flex-col border-2 w-[50%] bg-slate-100 dark:bg-slate-600  gap-3 pb-3 absolute  right-0 md:hidden  overflow-scroll h-[calc(100vh-70px)] top-[66px]  '>
       
                 <div className=' flex items-center gap-3 pl-4 pt-5 cursor-pointer'>
-                    <Avatar name="Iman Kam" size='30' round={true} src={currentUser?.profilepic}></Avatar>
-                    <p>{currentUser?.name}</p>
+                    <Avatar name="Iman Kam" size='30' round={true} src={user?.profilepic}></Avatar>
+                    <div>{user?.name}</div> 
                 </div>
 
                 <MenuItems imageUrl={friends} title="Friends"/>

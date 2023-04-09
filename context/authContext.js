@@ -23,7 +23,7 @@ useEffect(()=>{
 },[currentUser])
 
 const login = ()=>{
-    setCurrentUser({id:1,name:"Iman",profilepic:"https://media.licdn.com/media/AAYQAQSOAAgAAQAAAAAAAB-zrMZEDXI2T62PSuT6kpB6qg.png"})
+    setCurrentUser({id:1,name:"Iman",profilepic:"https://media.licdn.com/dms/image/D4E03AQF2miu0lFPN4A/profile-displayphoto-shrink_800_800/0/1676478695714?e=2147483647&v=beta&t=2mDH3B_ektPudY0YH4E06hyAOJfby_E3FTdMwpU8jJE"})
 }
 
 return (

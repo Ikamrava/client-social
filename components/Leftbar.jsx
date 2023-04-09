@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import Avatar from 'react-avatar'
 import MenuItems from './MenuItems'
 import friends from "../images/friends.png"
@@ -14,13 +14,17 @@ import message from "../images/message.png"
 import { AuthContext } from '@/context/authContext'
 
 function Leftbar() {
-  const {currentUser} = useContext(AuthContext)
+  const {currentUser} =  useContext(AuthContext)
+  const[user,setuser] = useState(null)
+  useEffect(()=>{
+    setuser(currentUser)
+  },[currentUser])
   return (
     <div className='hidden flex-[10%] md:flex flex-col border-2  h-[calc(100vh-70px)] bg-white dark:bg-slate-800 sticky top-[70px]  gap-5 pb-3 overflow-scroll scrollbar-hide'>
       
       <div className=' flex items-center gap-3 pl-4 pt-5 cursor-pointer'>
-        <Avatar name="Iman Kam" size='30' round={true} src={currentUser?.profilepic}></Avatar>
-        <p>{currentUser?.name}</p>
+        <Avatar name="Iman Kam" size='30' round={true} src={user?.profilepic}></Avatar> 
+         <span>{user?.name}</span> 
       </div>
 
       <MenuItems imageUrl={friends} title="Friends"/>
