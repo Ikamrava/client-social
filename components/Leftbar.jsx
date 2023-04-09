@@ -13,6 +13,9 @@ import video from "../images/video.png"
 import message from "../images/message.png"
 import { AuthContext } from '@/context/authContext'
 
+
+
+
 function Leftbar() {
   const {currentUser} =  useContext(AuthContext)
   const[user,setuser] = useState(null)
