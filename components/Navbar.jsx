@@ -23,6 +23,9 @@ import video from "../images/video.png"
 import message from "../images/message.png"
 import { useTheme } from "next-themes";
 import { AuthContext } from '@/context/authContext';
+import { BsSun } from 'react-icons/bs';
+
+
 
 
 
@@ -30,6 +33,7 @@ import { AuthContext } from '@/context/authContext';
 
 function Navbar() {
     const { systemTheme, theme, setTheme } = useTheme();
+    const [themicon,setthemIcon] = useState("")
 
     const {currentUser} = useContext(AuthContext)
     const [show,setShow] = useState(false)
@@ -42,13 +46,31 @@ function Navbar() {
     }
 
     function toggle(){
-        theme == "dark"? setTheme('light'): setTheme("dark")
+        if(theme == "dark"){
+            setTheme('light')
+            
+        }else{
+            setTheme("dark")
+            
+        }
+        
     }
 
     const[user,setuser] = useState(null)
-  useEffect(()=>{
-    setuser(currentUser)
-  },[currentUser])
+    useEffect(()=>{
+         setuser(currentUser)
+         
+      },[currentUser])
+
+      useEffect(()=>{
+        if(theme == "light"){
+            
+            setthemIcon(<BsMoonStars className=' cursor-pointer dark:text-white bg-black text-white rounded-full p-1 ' size={25} onClick={toggle}/>)
+        }else{
+           
+            setthemIcon(<BsSun className=' cursor-pointer  bg-yellow-400 rounded-full p-1 text-black ' size={25} onClick={toggle}/>)
+        }
+      },[themicon])
 
 
 
@@ -60,7 +82,11 @@ function Navbar() {
             </div>
 
             <AiOutlineHome className=' dark:text-white' size={25}/>
-            <BsMoonStars className=' cursor-pointer dark:text-white ' size={25} onClick={toggle}/>
+            {/* {theme === "light"? <BsMoonStars className=' cursor-pointer dark:text-white ' size={25} onClick={toggle}/> :
+            <BsSun className=' cursor-pointer dark:text-white ' size={25} onClick={toggle}/>
+            } */}
+            {themicon}
+            
             <AiOutlineAppstore className=' cursor-pointer dark:text-white ' size={25}/>
 
             <div className=' hidden md:block relative cursor-pointer dark:text-white '>
