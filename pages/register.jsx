@@ -1,7 +1,33 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Link from 'next/link'
+import axios from 'axios'
 
 function register() {
+  const [username,setUsername] = useState("")
+  const [email,setEmail] = useState("")
+  const [password,setPassword] = useState("")
+  const [name,setName] = useState("")
+
+
+  async function registerHandler(e){
+    e.preventDefault()
+    const response = await fetch("api/auth/register",{
+      method : "POST",
+      body : JSON.stringify({
+        username,
+        password,
+        email,
+        name
+      }),
+      headers:{
+        "Content-Type":"application/json"
+      }
+    })
+
+    const data = await response.json()
+    console.log(data)
+   }
+
   return (
     <div className=' bg-slate-600 h-screen pt-10'>
       <div className='max-w-4xl flex flex-col items-center  md:flex-row mx-auto  rounded-xl   '>
@@ -9,14 +35,14 @@ function register() {
         <div className=' flex flex-col flex-1 w-[80%] px-10 bg-white py-10   md:rounded-l-2xl   '>
           <h1 className=' text-2xl font-bold text-gray-600 mb-10 ' >Register</h1>
           <label className=' text-gray-600' >Username</label>
-          <input className=' border-b-2 mb-5 ' type="text" />
+          <input className=' border-b-2 mb-5 ' type="text" onChange={(e)=>{setUsername(e.target.value)}} />
           <label className=' text-gray-600' >Password</label>
-          <input className=' border-b-2 mb-10 ' type="password" />
+          <input className=' border-b-2 mb-10 ' type="password" onChange={(e)=>{setPassword(e.target.value)}} />
           <label className=' text-gray-600' >Email</label>
-          <input className=' border-b-2 mb-10 ' type="email" />
+          <input className=' border-b-2 mb-10 ' type="email" onChange={(e)=>{setEmail(e.target.value)}} />
           <label className=' text-gray-600' >Name</label>
-          <input className=' border-b-2 mb-10 ' type="text" />
-          <button className=' bg-violet-500 py-2 text-white font-bold mb-6 mt-1'>Register</button>
+          <input className=' border-b-2 mb-10 ' type="text"  onChange={(e)=>{setName(e.target.value)}}/>
+          <button className=' bg-violet-500 py-2 text-white font-bold mb-6 mt-1' onClick={registerHandler}>Register</button>
           <p className=' md:hidden text-center mb-2 pt-10'>Do you have an account?</p>
           <Link className=" md:hidden text-center bg-slate-700 text-white py-2" href="/login">Login</Link>
         </div>
